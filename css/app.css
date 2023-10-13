@@ -20,8 +20,8 @@ body::-webkit-scrollbar {
 }
 
 .cropper {
-  width: 14rem;
-  height: 14rem;
+  width: 16rem;
+  height: 16rem;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
@@ -31,9 +31,9 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   height: auto;
   width: 100%;
-  -o-object-position: 3px -50px;
-     object-position: 3px -50px;
-  scale: 1.5;
+  -o-object-position: 3px -20px;
+     object-position: 3px -20px;
+  scale: 1.6;
 }
 
 .btn-music {
