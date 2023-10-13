@@ -64,10 +64,10 @@ const escapeHtml = (unsafe) => {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 };
-const showGift=()=>{
-  const giftCard=document.getElementById("gift-card")
-  giftCard.style.display="block"
-}
+const showGift = () => {
+  const giftCard = document.getElementById("gift-card");
+  giftCard.style.display = "block";
+};
 const salin = (btn) => {
   navigator.clipboard.writeText(btn.getAttribute("data-nomer"));
   let tmp = btn.innerHTML;
@@ -127,11 +127,11 @@ const play = (btn) => {
   if (btn.getAttribute("data-status").toString() != "true") {
     btn.setAttribute("data-status", "true");
     audio.play();
-    btn.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
+    btn.innerHTML = '<i class="fa-solid fa-circle-pause" id="music"></i>';
   } else {
     btn.setAttribute("data-status", "false");
     audio.pause();
-    btn.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
+    btn.innerHTML = '<i class="fa-solid fa-circle-play" id="music"></i>';
   }
 };
 
@@ -155,8 +155,6 @@ const balasan = async (button) => {
 
   let id = button.getAttribute("data-uuid").toString();
 
- 
-
   const BALAS = document.getElementById("balasan");
   BALAS.innerHTML = renderLoading(1);
   document.getElementById("hadiran").style.display = "none";
@@ -166,7 +164,7 @@ const balasan = async (button) => {
     method: "GET",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
   };
 
@@ -179,20 +177,20 @@ const balasan = async (button) => {
     .then((res) => res.json())
     .then((res) => {
       const item = {
-        uuid:res.data.uuid,
+        uuid: res.data.uuid,
         nama: res.data.name,
         hadir: res.data.presence,
         created_at: res.data.created_at,
         komentar: res.data.detail,
         comment: res.data.comments,
       };
-        document.getElementById("kirim").style.display = "none";
-        document.getElementById("batal").style.display = "block";
-        document.getElementById("kirimbalasan").style.display = "block";
-        document.getElementById("idbalasan").value = id;
-        const namaSplit = item.nama.split("|");
-        const nama = namaSplit.length > 1 ? namaSplit[1] : namaSplit[0];
-        BALAS.innerHTML = `
+      document.getElementById("kirim").style.display = "none";
+      document.getElementById("batal").style.display = "block";
+      document.getElementById("kirimbalasan").style.display = "block";
+      document.getElementById("idbalasan").value = id;
+      const namaSplit = item.nama.split("|");
+      const nama = namaSplit.length > 1 ? namaSplit[1] : namaSplit[0];
+      BALAS.innerHTML = `
                 <div class="card-body bg-light shadow p-3 my-2 rounded-4">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
                         <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
@@ -207,7 +205,6 @@ const balasan = async (button) => {
                       filterBadWords(item.komentar)
                     )}</p>
                 </div>`;
-   
     })
     .catch((err) => {
       resetForm();
@@ -250,7 +247,7 @@ const kirimBalasan = async () => {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       nama: "rizal|" + nama,
@@ -290,7 +287,7 @@ const innerCard = (comment) => {
 
   comment.forEach((data) => {
     const item = {
-      uuid:data.uuid,
+      uuid: data.uuid,
       nama: data.name,
       hadir: data.presence,
       created_at: data.created_at,
@@ -349,7 +346,9 @@ const renderCard = (data) => {
         <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${escapeHtml(
           filterBadWords(data.komentar)
         )}</p>
-        <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
+        <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="${
+          data.uuid
+        }" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
         ${innerCard(data.comment)}
     </div>`;
   return DIV;
@@ -460,9 +459,10 @@ const ucapan = async () => {
       "Content-Type": "application/json",
     },
   };
-  var currentPage = Math.ceil(pagination.getNext()  / 10)+1
+  var currentPage = Math.ceil(pagination.getNext() / 10) + 1;
   await fetch(
-    document.querySelector("body").getAttribute("data-url") + `/api/comment?page=${currentPage}`,
+    document.querySelector("body").getAttribute("data-url") +
+      `/api/comment?page=${currentPage}`,
     REQ
   )
     .then((res) => res.json())
@@ -470,14 +470,14 @@ const ucapan = async () => {
       UCAPAN.innerHTML = null;
       res.data.forEach((data) => {
         const item = {
-          uuid:data.uuid,
+          uuid: data.uuid,
           nama: data.name,
           hadir: data.presence,
           created_at: data.created_at,
           komentar: data.detail,
           comment: data.comments,
         };
-          UCAPAN.appendChild(renderCard(item));
+        UCAPAN.appendChild(renderCard(item));
       });
       // console.log(res.data.length)
       pagination.setResultData(res.data.length);
@@ -530,7 +530,7 @@ const kirim = async () => {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       nama: "rizal|" + nama,
