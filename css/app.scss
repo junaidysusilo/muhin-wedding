@@ -33,6 +33,22 @@ body::-webkit-scrollbar {
         object-position: 3px -20px;
         scale: 1.6;
     }
+    .bg-cowok{
+        display: inline;
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+        object-position: 22px 9px;
+        scale: 3.4;
+    }
+    .bg-cewek{
+        display: inline;
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+        object-position: -15px -10px;
+        scale: 3.4;
+    }
 }
 
 .btn-music {
@@ -49,7 +65,7 @@ button {
         align-items: center;
         height: 34px;
         width: 28px;
-        font-size: 22px;
+        font-size: 20px;
         text-align: center;
     }
 }

@@ -35,6 +35,24 @@ body::-webkit-scrollbar {
      object-position: 3px -20px;
   scale: 1.6;
 }
+.cropper .bg-cowok {
+  display: inline;
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  -o-object-position: 22px 9px;
+     object-position: 22px 9px;
+  scale: 3.4;
+}
+.cropper .bg-cewek {
+  display: inline;
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  -o-object-position: -15px -10px;
+     object-position: -15px -10px;
+  scale: 3.4;
+}
 
 .btn-music {
   position: fixed;
@@ -49,7 +67,7 @@ button #music {
   align-items: center;
   height: 34px;
   width: 28px;
-  font-size: 22px;
+  font-size: 20px;
   text-align: center;
 }
 
