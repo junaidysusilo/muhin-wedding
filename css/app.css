@@ -40,18 +40,18 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   height: auto;
   width: 100%;
-  -o-object-position: 22px 9px;
-     object-position: 22px 9px;
-  scale: 3.4;
+  -o-object-position: 30px 22px;
+     object-position: 30px 22px;
+  scale: 3.5;
 }
 .cropper .bg-cewek {
   display: inline;
   margin: 0 auto;
   height: auto;
   width: 100%;
-  -o-object-position: -15px -10px;
-     object-position: -15px -10px;
-  scale: 3.4;
+  -o-object-position: -25px 5px;
+     object-position: -25px 5px;
+  scale: 2.1;
 }
 
 .btn-music {
