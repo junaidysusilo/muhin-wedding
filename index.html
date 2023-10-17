@@ -519,6 +519,15 @@
 
       <div class="container">
         <div class="py-4">
+          <div class="video-container mb-4 d-flex mx-auto">
+            <iframe
+              src="https://www.youtube.com/embed/vvSIOQfQYpY?si=t8Ed11JbRXkUBlDb&amp;start=3"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
           <div class="text-center">
             <h1 class="font-estetik mt-0 mb-3" style="font-size: 3rem">
               Love Gift
@@ -811,6 +820,7 @@
               <button
                 type="button"
                 class="btn btn-light shadow rounded-4 mt-4"
+                id="bukaUndangan"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
                 onclick="buka()"
@@ -833,6 +843,33 @@
       integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c="
       crossorigin="anonymous"
     ></script>
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement("script");
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var player;
+
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          height: "390",
+          width: "640",
+          videoId: "vvSIOQfQYpY",
+          playerVars: {
+            playsinline: 1,
+          },
+          events: {
+            onReady: onPlayerReady,
+          },
+        });
+      }
+
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+    </script>
     <script src="./js/app.js?v=1234"></script>
   </body>
 </html>
