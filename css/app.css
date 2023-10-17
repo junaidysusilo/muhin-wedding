@@ -49,9 +49,9 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   height: auto;
   width: 100%;
-  -o-object-position: -25px -15px;
-     object-position: -25px -15px;
-  scale: 2.1;
+  -o-object-position: -26px -48px;
+     object-position: -26px -48px;
+  scale: 4;
 }
 
 .video-container {
